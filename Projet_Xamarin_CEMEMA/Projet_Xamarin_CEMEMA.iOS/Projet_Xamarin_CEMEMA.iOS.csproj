@@ -61,6 +61,7 @@
     <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -129,7 +130,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Projet_Xamarin_CEMEMA\Projet_Xamarin_CEMEMA.csproj">
-      <Project>{5C591D5F-BD08-4A38-92AB-AEC222D0DEEF}</Project>
+      <Project>{5A5F5CF3-5A23-4A93-8E82-6DEBB58ACACC}</Project>
       <Name>Projet_Xamarin_CEMEMA</Name>
     </ProjectReference>
   </ItemGroup>

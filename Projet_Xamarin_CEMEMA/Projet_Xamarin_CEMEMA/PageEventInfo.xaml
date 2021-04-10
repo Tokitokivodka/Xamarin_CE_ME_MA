@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Projet_Xamarin_CEMEMA.PageEventInfo">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout HorizontalOptions="Center" Spacing="20" >
+                <Label x:Name="nameExit" FontSize="30" />
+
+                <Label x:Name="addressExit" FontSize="30" />
+
+                <Label x:Name="postalCodeExit" FontSize="30" />
+
+                <Label x:Name="numberExit" FontSize="30" />
+
+                <Label x:Name="dateExit" FontSize="30" />
+
+                <Label x:Name="timeExit" FontSize="30" />
+
+                <Label x:Name="numberMaxOfPeopleExit" FontSize="30" />
+
+                <Label x:Name="descriptionExit" FontSize="30" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
