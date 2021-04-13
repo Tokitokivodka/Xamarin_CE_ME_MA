@@ -140,4 +140,9 @@
       <Name>Projet_Xamarin_CEMEMA</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\add.png" />
+    <BundleResource Include="Resources\home.png" />
+    <BundleResource Include="Resources\profile.png" />
+  </ItemGroup>
 </Project>
