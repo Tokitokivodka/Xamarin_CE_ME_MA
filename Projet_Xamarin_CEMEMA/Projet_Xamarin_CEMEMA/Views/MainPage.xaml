@@ -1,35 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Projet_Xamarin_CEMEMA.MainPage">
+             x:Class="Projet_Xamarin_CEMEMA.MainPage"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
 
-    <ScrollView>
-        <StackLayout>
-            <Label x:Name="name" Text="Name of event" />
-            <Entry x:Name="entryName" />
 
-            <Label x:Name="address" Text="Address of event" />
-            <Entry x:Name="entryAddress" />
+        <maps:Map x:Name="map" IsShowingUser="true" MoveToLastRegionOnLayoutChange="false"
+                  ItemsSource="{Binding Locations}">
+            <maps:Map.ItemTemplate>
+                <DataTemplate>
+                    <maps:Pin Position="{Binding Position}"
+                              Address="{Binding Address}"
+                              Label="{Binding Description}" />
+                </DataTemplate>
+            </maps:Map.ItemTemplate>
+        </maps:Map>
 
-            <Label x:Name="postalCode" Text="Postal Code of event" />
-            <Entry x:Name="entryPostalCode" />
-
-            <Label x:Name="number" Text="Cellular number" />
-            <Entry x:Name="entryNumber" />
-
-            <Label x:Name="date" Text="Date of event" />
-            <DatePicker x:Name="dateOfEvent" />
-
-            <Label x:Name="time" Text="Time of event" />
-            <TimePicker x:Name="timeOfEvent" />
-
-            <Label x:Name="description" Text="Description" />
-            <Entry x:Name="entryDescription" />
-
-            <Label x:Name="numberMaxoOPeople" Text="Max poeple" />
-            <Entry x:Name="entryNumbermaxOfPeople" />
-
-            <Button x:Name="validate" Text="OK" HorizontalOptions="Center" Clicked="ClickValidate"/>
-        </StackLayout>
-    </ScrollView>
 </ContentPage>

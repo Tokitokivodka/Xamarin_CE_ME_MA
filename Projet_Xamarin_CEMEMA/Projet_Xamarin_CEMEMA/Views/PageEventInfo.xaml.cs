@@ -5,6 +5,7 @@ namespace Projet_Xamarin_CEMEMA
 {
     public partial class PageEventInfo : ContentPage
     {
+
         public PageEventInfo(EvenementModel evenement)
         {
             InitializeComponent();
@@ -12,6 +13,7 @@ namespace Projet_Xamarin_CEMEMA
             nameExit.Text = evenement.Name;
             addressExit.Text = evenement.Address;
             postalCodeExit.Text = evenement.PostalCode;
+            //cityExit.Text = evenement.City;
             numberExit.Text = evenement.CellularNumber;
             numberMaxOfPeopleExit.Text = evenement.NumberMaxOfPeople;
             dateExit.Text = evenement.Date;

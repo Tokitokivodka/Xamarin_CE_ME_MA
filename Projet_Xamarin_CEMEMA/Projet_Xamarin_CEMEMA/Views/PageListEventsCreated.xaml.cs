@@ -8,20 +8,19 @@ namespace Projet_Xamarin_CEMEMA
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageListEventsCreated : ContentPage
     {
+        private ObservableCollection<string> items = new ObservableCollection<string>();
         public ObservableCollection<string> Items { get; set; }
-
-        ListEvent listEvent = new ListEvent();
 
         public PageListEventsCreated()
         {
             InitializeComponent();
 
-            foreach(EvenementModel evenement in listEvent.evenements)
+            foreach(EvenementModel evenement in ListEvent.evenements)
             {
-                Items.Add(evenement.Name);
+                items.Add(evenement.Name);
             }
 
-            MyListView.ItemsSource = Items;
+            MyListView.ItemsSource = items;
         }
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -33,15 +32,15 @@ namespace Projet_Xamarin_CEMEMA
 
             if (answer == false)
             {
-                listEvent.RemoveEvent(e.Item.ToString());
+                ListEvent.RemoveEvent((EvenementModel)e.Item);
             }
             else
             {
                 // Get value of each entry in the model
-                var evenement = listEvent.FindEvent(e.Item.ToString());
+                //var evenement = ListEvent.FindEvent(e.Item.ToString());
 
                 // Go to the PageEnventInfo
-                var newPage = new PageEventInfo(evenement);
+                var newPage = new PageCreationEvent();
                 await Navigation.PushAsync(newPage);
             }
 

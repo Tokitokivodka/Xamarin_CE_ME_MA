@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Projet_Xamarin_CEMEMA.Model
 {
-    public static class ListEvent
+    public class ListEventParticipated
     {
         public static List<EvenementModel> evenements = new List<EvenementModel>();
         private static EvenementModel evenementModel;
@@ -14,13 +15,22 @@ namespace Projet_Xamarin_CEMEMA.Model
 
         public static void RemoveEvent(EvenementModel e)
         {
+            /*
+            foreach(EvenementModel em in evenements)
+            {
+                if (em == e)
+                {
+                    evenements.Remove(em);
+                }
+            }
+            */
             evenements.Remove(e);
         }
 
         public static EvenementModel FindEvent(string e)
         {
 
-            foreach(EvenementModel em in evenements)
+            foreach (EvenementModel em in evenements)
             {
                 if (em.Name == e)
                 {

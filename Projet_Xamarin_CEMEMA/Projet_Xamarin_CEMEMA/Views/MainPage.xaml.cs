@@ -1,49 +1,52 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Projet_Xamarin_CEMEMA.Model;
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
+using Map = Xamarin.Forms.Maps.Map;
 
 namespace Projet_Xamarin_CEMEMA
 {
     public partial class MainPage : ContentPage
     {
-        ListEvent listEvent = new ListEvent();
 
         public MainPage()
         {
-            InitializeComponent();
-
-            // Max length of postal code
-            entryPostalCode.MaxLength = 5;
-
-            // Max length of cellular number
-            entryNumber.MaxLength = 10;
-
-            // Minimun date is Now
-            dateOfEvent.MinimumDate = DateTime.Now;
-        }
-
-        // Save info when click on button "OK"
-        private async void ClickValidate(object sender, EventArgs e)
-        {
-            // Get value of each entry in the model
-            var evenement = new EvenementModel
+            Map map = new Map();
+            Content = map;
+            
+            var mapPosition = new Position(43.65, 6.9833);
+            var mapSpan = MapSpan.FromCenterAndRadius(mapPosition, Distance.FromMiles(2));
+            map.MoveToRegion(mapSpan);
+            
+            Pin pin = new Pin()
             {
-                Name = entryName.Text,
-                Address = entryAddress.Text,
-                PostalCode = entryPostalCode.Text,
-                CellularNumber = entryNumber.Text,
-                NumberMaxOfPeople = entryNumbermaxOfPeople.Text,
-                Date = dateOfEvent.Date.ToString("dd/MM/yyyy"),
-                Time = timeOfEvent.Time.ToString(),
-                Description = entryDescription.Text
+                   Label = "Soiree1",
+                   Address = "6 chemin de l'oratoire, Plascassier, France",
+                   Type = PinType.Place,
+                   Position = new Position(43.65, 6.9833)
+            };
+            map.Pins.Add(pin);
+
+            pin.MarkerClicked += async (s, args) =>
+            {
+                args.HideInfoWindow = true;
+
+                string pinName = ((Pin)s).Label;
+
+                bool answer = await DisplayAlert(pinName, "What dou you want?", "Interrested", "Cancel");
+
+                if (answer == false)
+                {
+                }
+                else
+                {
+                    // Add event to list event participated
+                    EvenementModel evt = ListEvent.FindEvent(pinName);
+                    ListEventParticipated.AddEvent(evt);
+                }
             };
 
-            // Add evenement to the list
-            listEvent.AddEvent(evenement);
-
-            // Go to the PageEnventInfo
-            var newPage = new PageEventInfo(evenement);
-            await Navigation.PushAsync(newPage);
         }
     }
 }

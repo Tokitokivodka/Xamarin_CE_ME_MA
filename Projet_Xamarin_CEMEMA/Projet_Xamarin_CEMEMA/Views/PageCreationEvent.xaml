@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Projet_Xamarin_CEMEMA.PageCreationEvent">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+            <Label x:Name="name" Text="Name of event" />
+            <Entry x:Name="entryName" />
+
+            <Label x:Name="address" Text="Address of event" />
+            <Entry x:Name="entryAddress" />
+
+            <Label x:Name="postalCode" Text="Postal Code of event" />
+            <Entry x:Name="entryPostalCode" />
+
+            <Button Text="Get city name" Clicked="GetCityName" HorizontalOptions="Center"/>
+
+
+            <Label x:Name="city" Text="City of event" />
+            <Label x:Name="labelCity" />
+
+            <Label x:Name="number" Text="Cellular number" />
+            <Entry x:Name="entryNumber" />
+
+            <Label x:Name="date" Text="Date of event" />
+            <DatePicker x:Name="dateOfEvent" />
+
+            <Label x:Name="time" Text="Time of event" />
+            <TimePicker x:Name="timeOfEvent" />
+
+            <Label x:Name="description" Text="Description" />
+            <Entry x:Name="entryDescription" />
+
+            <Label x:Name="numberMaxoOPeople" Text="Max poeple" />
+            <Entry x:Name="entryNumbermaxOfPeople" />
+
+            <Button x:Name="validate" Text="OK" HorizontalOptions="Center" Clicked="ClickValidate"/>
+        </StackLayout>
+    </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

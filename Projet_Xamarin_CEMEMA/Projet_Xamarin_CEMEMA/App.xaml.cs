@@ -10,7 +10,7 @@ namespace Projet_Xamarin_CEMEMA
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new NavigationBarPage());
         }
 
         protected override void OnStart()
